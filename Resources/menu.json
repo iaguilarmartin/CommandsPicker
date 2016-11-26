@@ -7,6 +7,9 @@
             "image": "157548-556x370.jpg",
             "price": 8.50,
             "allergens": [
+                "all5",
+                "all7",
+                "all8"
             ]
         },
         {
@@ -16,6 +19,8 @@
             "image": "87207-556x370.jpg",
             "price": 9.95,
             "allergens": [
+                "all1",
+                "all4"
             ]
         },
         {
@@ -34,6 +39,9 @@
             "image": "24120-556x370.jpg",
             "price": 7.50,
             "allergens": [
+                "all1",
+                "all5",
+                "all7"
             ]
         },
         {
@@ -52,6 +60,8 @@
             "image": "753182-556x370.jpeg",
             "price": 10,
             "allergens": [
+                "all2",
+                "all6"
             ]
         },
         {
@@ -61,6 +71,7 @@
             "image": "156016-556x370.jpg",
             "price": 8.95,
             "allergens": [
+                "all3"
             ]
         },
         {
@@ -70,6 +81,7 @@
             "image": "559249-556x370.jpg",
             "price": 8,
             "allergens": [
+                "all5"
             ]
         }
     ],
@@ -90,6 +102,7 @@
             "image": "711589-556x370.jpg",
             "price": 10,
             "allergens": [
+                "all1"
             ]
         },
         {
@@ -108,6 +121,7 @@
             "image": "664030-556x370.jpg",
             "price": 11,
             "allergens": [
+                "all7"
             ]
         },
         {
@@ -117,6 +131,7 @@
             "image": "595258-556x370.jpg",
             "price": 12.5,
             "allergens": [
+                "all4"
             ]
         },
         {
@@ -126,6 +141,7 @@
             "image": "601364-556x370.jpg",
             "price": 12.8,
             "allergens": [
+                "all7"
             ]
         },
         {
@@ -155,6 +171,8 @@
             "image": "Tarta-de-queso-5.jpg",
             "price": 6.50,
             "allergens": [
+                "all5",
+                "all7"
             ]
         },
         {
@@ -164,6 +182,8 @@
             "image": "537363-556x370.jpg",
             "price": 5,
             "allergens": [
+                "all3",
+                "all5"
             ]
         },
         {
@@ -173,6 +193,8 @@
             "image": "525473-556x370.jpg",
             "price": 6,
             "allergens": [
+                "all5",
+                "all7"
             ]
         },
         {
@@ -182,6 +204,8 @@
             "image": "140579-556x370.jpg",
             "price": 7.4,
             "allergens": [
+                "all5",
+                "all7"
             ]
         },
         {
@@ -191,6 +215,8 @@
             "image": "267770-556x370.jpg",
             "price": 7.1,
             "allergens": [
+                "all3",
+                "all5"
             ]
         }
     ],
