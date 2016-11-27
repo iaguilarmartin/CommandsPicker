@@ -38,3 +38,13 @@ captures/
 
 # Keystore files
 *.jks
+
+CommandsPicker/*.iml
+CommandsPicker/.gradle
+CommandsPicker/local.properties
+CommandsPicker/.idea
+CommandsPicker/.DS_Store
+CommandsPicker/build
+CommandsPicker/captures
+CommandsPicker/.externalNativeBuild
+
