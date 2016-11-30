@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.iaguilarmartin.commandspicker.activities.MainActivity">
+
+    <include android:layout_height="wrap_content" android:layout_width="match_parent" layout="@layout/toolbar_main"></include>
+
+    <fragment
+        android:id="@+id/tables_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.iaguilarmartin.commandspicker.fragments.CoursesFragment"
+        tools:layout="@layout/fragment_tables"/>
+</LinearLayout>

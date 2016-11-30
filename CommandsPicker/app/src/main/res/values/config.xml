@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="config_number_of_tables">10</string>
+    <string name="config_remote_resources_url">https://raw.githubusercontent.com/iaguilarmartin/CommandsPicker/master/Resources/</string>
+    <string name="config_courses_json_file">menu.json</string>
+</resources>

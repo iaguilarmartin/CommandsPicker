@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">CommandsPicker</string>
+    <string name="tables_activity_title">Table List</string>
+    <string name="settings_menu_option">Settings</string>
+    <string name="number_of_tables">Number of tables</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="progress_dialog_title">Descargando</string>
+    <string name="progress_dialog_text">Descargando el listado de platos disponibles</string>
+    <string name="starters_title">Starters</string>
+    <string name="main_courses_title">Main Courses</string>
+    <string name="desserts_title">Desserts</string>
 </resources>
