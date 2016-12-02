@@ -11,34 +11,36 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.iaguilarmartin.commandspicker.R;
+import com.iaguilarmartin.commandspicker.model.CommanderApplication;
 import com.iaguilarmartin.commandspicker.model.Utils;
 
 public class SettingsActivity extends AppCompatActivity {
 
     public static final String PREFERENCE_NUMBER_OF_TABLES = "numberOfTables";
 
+    EditText mEditText;
+    CommanderApplication mApp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        Utils.initializeToolbar(this, R.string.settings_menu_option);
+        setTitle(R.string.settings_menu_option);
 
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        int numberOfTables = prefs.getInt(PREFERENCE_NUMBER_OF_TABLES, Integer.parseInt(getString(R.string.config_number_of_tables)));
+        mApp = (CommanderApplication) getApplication();
 
-        final EditText numberOfTablesEdit = (EditText) findViewById(R.id.numberOfTablesEdit);
-        numberOfTablesEdit.setText(String.valueOf(numberOfTables));
+        mEditText = (EditText) findViewById(R.id.numberOfTablesEdit);
+        mEditText.setText(String.valueOf(mApp.getNumberOfTables()));
 
         Button addTableBtn = (Button) findViewById(R.id.addTableBtn);
         addTableBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int numberOfTables = Integer.parseInt(String.valueOf(numberOfTablesEdit.getText()));
+                int numberOfTables = Integer.parseInt(String.valueOf(mEditText.getText()));
                 numberOfTables++;
-                numberOfTablesEdit.setText(String.valueOf(numberOfTables));
 
-                prefs.edit().putInt(PREFERENCE_NUMBER_OF_TABLES, numberOfTables).apply();
+                setNumberOfTables(numberOfTables);
             }
         });
 
@@ -46,14 +48,20 @@ public class SettingsActivity extends AppCompatActivity {
         removeTableBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int numberOfTables = Integer.parseInt(String.valueOf(numberOfTablesEdit.getText()));
+                int numberOfTables = Integer.parseInt(String.valueOf(mEditText.getText()));
                 if (numberOfTables > 1) {
                     numberOfTables--;
-                    numberOfTablesEdit.setText(String.valueOf(numberOfTables));
 
-                    prefs.edit().putInt(PREFERENCE_NUMBER_OF_TABLES, numberOfTables).apply();
+                    setNumberOfTables(numberOfTables);
                 }
             }
         });
+    }
+
+    private void setNumberOfTables(int numberOfTables) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        prefs.edit().putInt(PREFERENCE_NUMBER_OF_TABLES, numberOfTables).apply();
+        mApp.setNumberOfTables(numberOfTables);
+        mEditText.setText(String.valueOf(numberOfTables));
     }
 }

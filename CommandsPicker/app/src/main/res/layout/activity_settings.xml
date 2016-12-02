@@ -8,8 +8,6 @@
     android:orientation="vertical"
     tools:context="com.iaguilarmartin.commandspicker.activities.SettingsActivity">
 
-    <include android:layout_height="wrap_content" android:layout_width="match_parent" layout="@layout/toolbar_main"></include>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,12 +31,11 @@
 
             <EditText
                 android:id="@+id/numberOfTablesEdit"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:enabled="false"
-                android:text="10"
                 android:layout_weight="1"
-                android:textColor="#666"
+                android:textColor="@color/colorSection"
                 android:textStyle="normal|bold"
                 android:textSize="24sp"/>
 
@@ -47,21 +44,21 @@
                 android:text="+"
                 android:layout_width="50dp"
                 android:paddingTop="5dp"
-                android:textSize="32sp"
+                android:textSize="@dimen/button_text_size"
                 android:layout_height="match_parent"/>
             <Button
                 android:id="@+id/removeTableBtn"
                 android:text="-"
                 android:layout_width="50dp"
                 android:paddingTop="5dp"
-                android:textSize="32sp"
+                android:textSize="@dimen/button_text_size"
                 android:layout_height="match_parent"/>
         </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="If you change the number of tables all commands will be removed"
+            android:text="@string/change_tables_warning"
             android:textSize="14sp"
             android:textStyle="normal|italic"
             android:textColor="#AAA"/>

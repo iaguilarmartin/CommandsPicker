@@ -2,17 +2,24 @@ package com.iaguilarmartin.commandspicker.model;
 
 import android.graphics.Bitmap;
 
+import com.iaguilarmartin.commandspicker.adapters.CoursesAdapter;
+
+import java.io.Serializable;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 /**
  * Created by iaguilarmartin on 27/11/16.
  */
 
-public class Course extends CourseCategory {
+public class Course implements Serializable, CoursesAdapter.CourseAdapterItem {
+    private String mName;
     private String mId;
     private String mDescription;
     private Double mPrice;
     private String mImage;
+    private CourseType mType;
+    private String mSuggestions = "";
     private ArrayList<Allergen> mAllergens;
 
     public Course() {
@@ -21,14 +28,12 @@ public class Course extends CourseCategory {
         mAllergens = new ArrayList<Allergen>();
     }
 
-    public Course(String id, String name, String description, Double price, String image, ArrayList<Allergen> allergens) {
-        super(name);
+    public String getName() {
+        return mName;
+    }
 
-        mId = id;
-        mDescription = description;
-        mPrice = price;
-        mImage = image;
-        mAllergens = allergens;
+    public void setName(String name) {
+        mName = name;
     }
 
     public String getId() {
@@ -71,16 +76,34 @@ public class Course extends CourseCategory {
         mAllergens = allergens;
     }
 
-    public String getFormattedPrice() {
-        return String.format("%.2f €", mPrice);
-    }
-
     public void addAllergen(Allergen allergen) {
         mAllergens.add(allergen);
     }
 
     @Override
     public String toString() {
-        return getName();
+        return mName;
+    }
+
+    public String getSuggestions() {
+        return mSuggestions;
+    }
+
+    public void setSuggestions(String suggestions) {
+        mSuggestions = suggestions;
+    }
+
+    public CourseType getType() {
+        return mType;
+    }
+
+    public void setType(CourseType type) {
+        mType = type;
+    }
+
+    public enum CourseType {
+        starter,
+        mainCourse,
+        dessert
     }
 }

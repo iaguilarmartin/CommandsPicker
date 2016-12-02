@@ -1,9 +1,10 @@
 package com.iaguilarmartin.commandspicker.fragments;
 
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -16,13 +17,14 @@ import android.widget.GridView;
 
 import com.iaguilarmartin.commandspicker.R;
 import com.iaguilarmartin.commandspicker.activities.SettingsActivity;
-import com.iaguilarmartin.commandspicker.activities.TableDetailActivity;
 import com.iaguilarmartin.commandspicker.adapters.TablesAdapter;
-
+import com.iaguilarmartin.commandspicker.model.CommanderApplication;
+import com.iaguilarmartin.commandspicker.model.Table;
 
 public class TablesFragment extends Fragment {
 
     private GridView mGridView;
+    private OnTableSelectedListener mOnTableSelectedListener;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,8 +42,11 @@ public class TablesFragment extends Fragment {
         mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getActivity(), TableDetailActivity.class);
-                startActivity(intent);
+
+                Table table = (Table) adapterView.getAdapter().getItem(i);
+                if (mOnTableSelectedListener != null) {
+                    mOnTableSelectedListener.onTableSelected(table);
+                }
             }
         });
 
@@ -76,12 +81,42 @@ public class TablesFragment extends Fragment {
         return true;
     }
 
-    private void updateTableList() {
-        int numberOfTables = PreferenceManager.getDefaultSharedPreferences(getActivity()).getInt(SettingsActivity.PREFERENCE_NUMBER_OF_TABLES, Integer.parseInt(getString(R.string.config_number_of_tables)));
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
 
-        if (mGridView.getAdapter() == null || mGridView.getAdapter().getCount() != numberOfTables) {
-            TablesAdapter adapter = new TablesAdapter(getActivity(), R.layout.view_table, numberOfTables);
+        if (getActivity() instanceof  OnTableSelectedListener) {
+            mOnTableSelectedListener = (OnTableSelectedListener) getActivity();
+        }
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+
+        if (getActivity() instanceof  OnTableSelectedListener) {
+            mOnTableSelectedListener = (OnTableSelectedListener) getActivity();
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+
+        mOnTableSelectedListener = null;
+    }
+
+    private void updateTableList() {
+
+        CommanderApplication app = (CommanderApplication) getActivity().getApplication();
+
+        if (mGridView.getAdapter() == null || mGridView.getAdapter().getCount() != app.getNumberOfTables()) {
+            TablesAdapter adapter = new TablesAdapter(getActivity(), R.layout.view_table, app.getTables());
             mGridView.setAdapter(adapter);
         }
+    }
+
+    public interface OnTableSelectedListener {
+        void onTableSelected(Table table);
     }
 }

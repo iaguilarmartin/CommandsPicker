@@ -3,11 +3,13 @@ package com.iaguilarmartin.commandspicker.model;
 import android.content.Context;
 
 import com.iaguilarmartin.commandspicker.R;
+import com.iaguilarmartin.commandspicker.adapters.CoursesAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -15,7 +17,7 @@ import java.util.HashMap;
  * Created by iaguilarmartin on 30/11/16.
  */
 
-public class Courses {
+public class Courses implements Serializable {
     private ArrayList<Course> mStarters;
     private ArrayList<Course> mMainCourses;
     private ArrayList<Course> mDesserts;
@@ -47,17 +49,18 @@ public class Courses {
             allergens.put(allergen.getId(), allergen);
         }
 
-        mStarters = processCourses(jsonObject.getJSONArray("starters"), allergens);
-        mMainCourses = processCourses(jsonObject.getJSONArray("mainCourses"), allergens);
-        mDesserts = processCourses(jsonObject.getJSONArray("desserts"), allergens);
+        mStarters = processCourses(jsonObject.getJSONArray("starters"), allergens, Course.CourseType.starter);
+        mMainCourses = processCourses(jsonObject.getJSONArray("mainCourses"), allergens, Course.CourseType.mainCourse);
+        mDesserts = processCourses(jsonObject.getJSONArray("desserts"), allergens, Course.CourseType.dessert);
     }
 
-    private ArrayList<Course> processCourses(JSONArray jsonCourses, HashMap<String, Allergen> allergens) throws JSONException {
+    private ArrayList<Course> processCourses(JSONArray jsonCourses, HashMap<String, Allergen> allergens, Course.CourseType type) throws JSONException {
         ArrayList<Course> courses = new ArrayList<Course>();
 
         for (int i = 0; i < jsonCourses.length(); i++) {
             JSONObject jsonCourse = (JSONObject) jsonCourses.get(i);
             Course course = new Course();
+            course.setType(type);
             course.setId(jsonCourse.getString("id"));
             course.setName(jsonCourse.getString("name"));
             course.setDescription(jsonCourse.getString("description"));
@@ -91,8 +94,8 @@ public class Courses {
         return mDesserts;
     }
 
-    public ArrayList<CourseCategory> getArray(Context context) {
-        ArrayList<CourseCategory> result = new ArrayList<CourseCategory>();
+    public ArrayList<CoursesAdapter.CourseAdapterItem> getArray(Context context) {
+        ArrayList<CoursesAdapter.CourseAdapterItem> result = new ArrayList<CoursesAdapter.CourseAdapterItem>();
 
         result.add(new CourseCategory(context.getString(R.string.starters_title)));
         result.addAll(mStarters);
@@ -102,6 +105,25 @@ public class Courses {
         result.addAll(mDesserts);
 
         return result;
+    }
+
+    public void addCourse(Course course) {
+
+        ArrayList<Course> list;
+
+        switch (course.getType()) {
+            case mainCourse: {
+                list = mMainCourses;
+            } break;
+            case dessert: {
+                list = mDesserts;
+            } break;
+            default: {
+                list = mStarters;
+            } break;
+        }
+
+        list.add(course);
     }
 
     public ArrayList<String> getCoursesAndAllergensImages() {

@@ -11,25 +11,21 @@ import android.widget.TextView;
 import com.iaguilarmartin.commandspicker.model.Table;
 import com.iaguilarmartin.commandspicker.R;
 
+import java.util.List;
+
 /**
  * Created by iaguilarmartin on 27/11/16.
  */
 
-public class TablesAdapter extends ArrayAdapter {
+public class TablesAdapter extends ArrayAdapter<Table> {
     int mTableResource;
     Context mContext;
 
-    public TablesAdapter(Context context, int resource, int numberOfTables) {
-        super(context, android.R.layout.simple_list_item_1);
+    public TablesAdapter(Context context, int resource, List<Table> tables) {
+        super(context, android.R.layout.simple_list_item_1, tables);
 
         mContext = context;
-
         mTableResource = resource;
-
-        for (int i = 0; i < numberOfTables; i++) {
-            Table table = new Table(i + 1);
-            add(table);
-        }
     }
 
     @NonNull

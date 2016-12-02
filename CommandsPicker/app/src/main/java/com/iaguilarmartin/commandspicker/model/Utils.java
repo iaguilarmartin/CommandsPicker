@@ -30,14 +30,8 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class Utils {
 
-    public static void initializeToolbar(AppCompatActivity activity, int titleRes) {
-        Toolbar toolbar = (Toolbar) activity.findViewById(R.id.main_toolbar);
-
-        TextView tvTitle = (TextView) toolbar.findViewById(R.id.actionBarTitle);
-        tvTitle.setText(titleRes);
-
-        activity.setSupportActionBar(toolbar);
-        activity.getSupportActionBar().setDisplayShowTitleEnabled(false);
+    public static String formatDoubleToPrice(double value) {
+        return String.format("%.2f €", value);
     }
 
     public static String convertStreamToString(InputStream is) throws IOException {

@@ -1,5 +1,6 @@
 package com.iaguilarmartin.commandspicker.fragments;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -10,24 +11,19 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.iaguilarmartin.commandspicker.R;
 import com.iaguilarmartin.commandspicker.adapters.CoursesAdapter;
+import com.iaguilarmartin.commandspicker.model.Course;
 import com.iaguilarmartin.commandspicker.model.Courses;
 import com.iaguilarmartin.commandspicker.model.Utils;
 
 import org.json.JSONException;
 
-import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-
-import javax.net.ssl.HttpsURLConnection;
 
 /**
  * Created by iaguilarmartin on 30/11/16.
@@ -37,6 +33,7 @@ public class CoursesFragment extends Fragment {
 
     private ListView mListView;
     private ProgressDialog mProgressDialog;
+    private OnCourseSelectedListener mOnCourseSelectedListener;
 
     @Nullable
     @Override
@@ -45,6 +42,17 @@ public class CoursesFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_courses, container, false);
         mListView = (ListView) root.findViewById(R.id.coursesList);
+
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+            CoursesAdapter.CourseAdapterItem course = (CoursesAdapter.CourseAdapterItem) adapterView.getAdapter().getItem(position);
+
+            if (course instanceof Course && mOnCourseSelectedListener != null) {
+                mOnCourseSelectedListener.onCourseSelected((Course) course);
+            }
+            }
+        });
 
         String coursesJSON = Utils.getAppDataFileContent(getActivity());
         if (coursesJSON == null) {
@@ -121,5 +129,34 @@ public class CoursesFragment extends Fragment {
 
             loadTableData(courses);
         }
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        if (getActivity() instanceof  OnCourseSelectedListener) {
+            mOnCourseSelectedListener = (OnCourseSelectedListener) getActivity();
+        }
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+
+        if (getActivity() instanceof  OnCourseSelectedListener) {
+            mOnCourseSelectedListener = (OnCourseSelectedListener) getActivity();
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+
+        mOnCourseSelectedListener = null;
+    }
+
+    public interface OnCourseSelectedListener {
+        void onCourseSelected(Course course);
     }
 }

@@ -3,12 +3,21 @@
     <string name="tables_activity_title">Table List</string>
     <string name="settings_menu_option">Settings</string>
     <string name="number_of_tables">Number of tables</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="progress_dialog_title">Descargando</string>
-    <string name="progress_dialog_text">Descargando el listado de platos disponibles</string>
+    <string name="progress_dialog_title">Downloading</string>
+    <string name="progress_dialog_text">Downloading courses information</string>
     <string name="starters_title">Starters</string>
     <string name="main_courses_title">Main Courses</string>
     <string name="desserts_title">Desserts</string>
+    <string name="course_detail_title">Course Detail</string>
+    <string name="change_tables_warning">If you change the number of tables all commands will be removed</string>
+    <string name="table_number_string">Table %d</string>
+    <string name="courses_activity_title">Courses</string>
+    <string name="course_detail_activity_title">Course detail</string>
+    <string name="add_course_menu_text">Add Course</string>
+    <string name="course_suggestions">Write here any suggestion given by the client about how he want the course to be cooked</string>
+    <string name="suggestions_text">Suggestions</string>
+    <string name="close_table">Close table</string>
+    <string name="course_added_message">Course added to table</string>
+    <string name="ticket_dialog_title">Table Ticket</string>
+    <string name="total">TOTAL</string>
 </resources>

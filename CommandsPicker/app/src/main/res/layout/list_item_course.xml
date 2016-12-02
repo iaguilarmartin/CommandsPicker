@@ -20,7 +20,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:textSize="17sp"
             android:textColor="@android:color/black"
             android:id="@+id/courseName"/>
 
@@ -31,6 +31,7 @@
             android:gravity="bottom">
 
             <LinearLayout
+                android:id="@+id/allergensLinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"

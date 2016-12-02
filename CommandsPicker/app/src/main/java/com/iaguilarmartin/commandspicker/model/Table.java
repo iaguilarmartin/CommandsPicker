@@ -1,12 +1,13 @@
 package com.iaguilarmartin.commandspicker.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by iaguilarmartin on 27/11/16.
  */
 
-public class Table {
+public class Table implements Serializable {
     private int mNumber;
     private Courses mCourses;
 
@@ -27,5 +28,32 @@ public class Table {
 
     public Courses getCourses() {
         return mCourses;
+    }
+
+    public void setCourses(Courses courses) {
+        mCourses = courses;
+    }
+
+    public Ticket generateTicket() {
+        Ticket ticket = new Ticket(mNumber);
+
+        double total = 0;
+
+        for (Course course: mCourses.getStarters()) {
+            ticket.addCourse(course);
+            total = total + course.getPrice();
+        }
+        for (Course course: mCourses.getMainCourses()) {
+            ticket.addCourse(course);
+            total = total + course.getPrice();
+        }
+        for (Course course: mCourses.getDesserts()) {
+            ticket.addCourse(course);
+            total = total + course.getPrice();
+        }
+
+        ticket.setTotal(total);
+
+        return ticket;
     }
 }
