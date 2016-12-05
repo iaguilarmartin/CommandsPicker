@@ -19,6 +19,7 @@ public class TableDetailActivity extends AppCompatActivity {
         mTableNumber = getIntent().getIntExtra(MainActivity.TABLE_NUMBER_EXTRA, -1);
         setTitle(String.format(getString(R.string.table_number_string), mTableNumber));
 
+        // Displays table information inside a TableDetailFragment
         FragmentManager fm = getFragmentManager();
         if (fm.findFragmentById(R.id.fragment_table_detail) == null) {
             fm.beginTransaction()

@@ -21,6 +21,7 @@ import com.iaguilarmartin.commandspicker.adapters.TablesAdapter;
 import com.iaguilarmartin.commandspicker.model.CommanderApplication;
 import com.iaguilarmartin.commandspicker.model.Table;
 
+// Fragment created to display tables inside the GridView
 public class TablesFragment extends Fragment {
 
     private GridView mGridView;
@@ -73,6 +74,7 @@ public class TablesFragment extends Fragment {
 
         switch (item.getItemId()) {
             case R.id.settings_option: {
+                // Displaying SettingsActivity in order to change number of tables
                 Intent intent = new Intent(getActivity(), SettingsActivity.class);
                 startActivity(intent);
             } break;
@@ -110,9 +112,15 @@ public class TablesFragment extends Fragment {
 
         CommanderApplication app = (CommanderApplication) getActivity().getApplication();
 
+        // If the GridView hasn't been initialized yet or the number of tables has been changed
+        // then TablesAdapter is been re-created
         if (mGridView.getAdapter() == null || mGridView.getAdapter().getCount() != app.getNumberOfTables()) {
             TablesAdapter adapter = new TablesAdapter(getActivity(), R.layout.view_table, app.getTables());
             mGridView.setAdapter(adapter);
+
+            if (mOnTableSelectedListener != null) {
+                mOnTableSelectedListener.onTableSelected(null);
+            }
         }
     }
 

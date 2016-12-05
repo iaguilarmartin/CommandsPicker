@@ -54,14 +54,19 @@ public class CoursesFragment extends Fragment {
             }
         });
 
+        // Looking for application data file on local file system
         String coursesJSON = Utils.getAppDataFileContent(getActivity());
         if (coursesJSON == null) {
+            // If it is not found then it is downloaded from remote URL
+            // A backgorund task is used in order not to block user experience
             mProgressDialog = ProgressDialog.show(getActivity(), getString(R.string.progress_dialog_title),
                     getString(R.string.progress_dialog_text), true);
 
             String strUrl = getString(R.string.config_remote_resources_url);
             new DownloadApplicationDataAsyncTask().execute(strUrl);
         } else {
+
+            // Else list is loaded with local information
             Courses courses = coursesFromJSON(coursesJSON);
             loadTableData(courses);
         }

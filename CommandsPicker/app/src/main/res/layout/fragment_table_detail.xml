@@ -2,9 +2,22 @@
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <TextView
+        android:id="@+id/tableNameText"
+        android:gravity="center_horizontal|center_vertical"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:textColor="@android:color/white"
+        android:background="#BBB"
+        android:layout_gravity="top"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"/>
 
     <ListView
+        android:layout_marginTop="60dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/tableCoursesList"/>

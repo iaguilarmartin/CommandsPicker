@@ -3,10 +3,7 @@ package com.iaguilarmartin.commandspicker.model;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.widget.TextView;
 
 import com.iaguilarmartin.commandspicker.R;
 
@@ -28,12 +25,15 @@ import javax.net.ssl.HttpsURLConnection;
  * Created by iaguilarmartin on 29/11/16.
  */
 
+// Class containing several static methods that are used in different parts of the application
 public class Utils {
 
+    // Formatting double values into € currency format
     public static String formatDoubleToPrice(double value) {
         return String.format("%.2f €", value);
     }
 
+    // Converts an InputStream into a plain string
     public static String convertStreamToString(InputStream is) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
         StringBuilder sb = new StringBuilder();
@@ -45,6 +45,7 @@ public class Utils {
         return sb.toString();
     }
 
+    // Function to download a file from a remote URL using httpsURLConnection
     public static InputStream downloadFileFromURL(String strURL) throws IOException {
         URL url = new URL(strURL);
         HttpsURLConnection httpURLConnection = (HttpsURLConnection) url.openConnection();
@@ -59,6 +60,7 @@ public class Utils {
         return null;
     }
 
+    // Function to store an InputSteam inside a local file
     public static boolean saveInputStreamToFile(Context context, InputStream inputStream, String fileName) {
         try {
             File file = new File(getApplicationDataDirectory(context), fileName);
@@ -81,6 +83,7 @@ public class Utils {
         }
     }
 
+    // Function to open an image file from device file system
     public static Bitmap getImageFromApplicationData(Context context, String imageName) {
         try {
             File file = new File(getApplicationDataDirectory(context), imageName);
@@ -91,6 +94,7 @@ public class Utils {
         }
     }
 
+    // Getting private application data direcory
     public static File getApplicationDataDirectory(Context context) {
         File appDataDIr = context.getDir("AppData", Context.MODE_PRIVATE);
         if (!appDataDIr.exists()) {
@@ -99,10 +103,12 @@ public class Utils {
         return appDataDIr;
     }
 
+    // Function to return the name of the JSON file that contains courses information
     public static String getAppDataFileName(Context context) {
         return context.getString(R.string.config_courses_json_file);
     }
 
+    // Reading content of application data JSON file
     public static String getAppDataFileContent(Context context) {
         String json = null;
 
@@ -120,6 +126,7 @@ public class Utils {
         return json;
     }
 
+    // Saving application data file in local file system
     public static void setAppDataFileContent(Context context, String data) {
         try {
             File file = new File(getApplicationDataDirectory(context), getAppDataFileName(context));

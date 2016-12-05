@@ -12,6 +12,9 @@ import java.util.ArrayList;
  * Created by iaguilarmartin on 2/12/16.
  */
 
+// Extending default application object to store table information on it
+// in order to be accesible all along the app context
+
 public class CommanderApplication extends Application {
 
     private ArrayList<Table> mTables;
@@ -25,7 +28,7 @@ public class CommanderApplication extends Application {
     }
 
     public void setNumberOfTables(int numberOfTables) {
-        mTables = new ArrayList<Table>();
+        mTables = new ArrayList<>();
         for (int i = 0; i < numberOfTables; i++) {
             Table table = new Table(i + 1);
             mTables.add(table);
@@ -45,7 +48,7 @@ public class CommanderApplication extends Application {
     }
 
     public Table getTable(int tableNumber) {
-        return mTables.get(tableNumber - 1);
+        return tableNumber > 0 && tableNumber <= mTables.size() ? mTables.get(tableNumber - 1) : null;
     }
 
     public Ticket generateTicket(int tableNumber) {

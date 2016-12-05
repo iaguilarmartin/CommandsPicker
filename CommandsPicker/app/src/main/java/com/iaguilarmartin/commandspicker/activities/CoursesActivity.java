@@ -3,18 +3,16 @@ package com.iaguilarmartin.commandspicker.activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.iaguilarmartin.commandspicker.R;
+import com.iaguilarmartin.commandspicker.fragments.CourseDetailFragment;
 import com.iaguilarmartin.commandspicker.fragments.CoursesFragment;
-import com.iaguilarmartin.commandspicker.fragments.TableDetailFragment;
 import com.iaguilarmartin.commandspicker.model.CommanderApplication;
 import com.iaguilarmartin.commandspicker.model.Course;
-import com.iaguilarmartin.commandspicker.model.Courses;
 
-import java.io.Serializable;
-
-public class CoursesActivity extends AppCompatActivity implements CoursesFragment.OnCourseSelectedListener {
+public class CoursesActivity extends AppCompatActivity implements CoursesFragment.OnCourseSelectedListener, CourseDetailFragment.OnAddCourseListener {
 
     public static final String EXTRA_TABLE_NUMBER = "tableNumber";
     public static final String COURSE_EXTRA = "CourseExtra";
@@ -27,6 +25,7 @@ public class CoursesActivity extends AppCompatActivity implements CoursesFragmen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_courses);
 
+        // Getting table number received inside intent extras
         mTableNumber = getIntent().getIntExtra(EXTRA_TABLE_NUMBER, -1);
 
         setTitle(getString(R.string.courses_activity_title));
@@ -34,9 +33,21 @@ public class CoursesActivity extends AppCompatActivity implements CoursesFragmen
 
     @Override
     public void onCourseSelected(Course course) {
-        Intent intent = new Intent(this, CourseDetailActivity.class);
-        intent.putExtra(COURSE_EXTRA, course);
-        startActivityForResult(intent, COURSE_ADD_RESULT);
+        // Implementing different behaviour depending on device screen pixel ratio
+
+        FrameLayout fragmentLayout = (FrameLayout) findViewById(R.id.course_detail_fragment);
+        if (fragmentLayout != null) {
+            // If current view contains a layout to display course information then
+            // a CourseDetailFragment is loaded inside it
+            CourseDetailFragment fragment = CourseDetailFragment.newInstance(course);
+            getFragmentManager().beginTransaction().replace(R.id.course_detail_fragment, fragment).commit();
+        } else {
+            // Else course information is displayed in another activity and wait for a result
+            // just in case user add a new course to the table
+            Intent intent = new Intent(this, CourseDetailActivity.class);
+            intent.putExtra(COURSE_EXTRA, course);
+            startActivityForResult(intent, COURSE_ADD_RESULT);
+        }
     }
 
     @Override
@@ -44,10 +55,23 @@ public class CoursesActivity extends AppCompatActivity implements CoursesFragmen
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == COURSE_ADD_RESULT && resultCode == RESULT_OK) {
+
+            // Course is added to the table
             Course course = (Course) data.getSerializableExtra(CourseDetailActivity.EXTRA_NEW_COURSE);
-            CommanderApplication app = (CommanderApplication) getApplication();
-            app.addCourse(mTableNumber, course);
-            Toast.makeText(this, R.string.course_added_message, Toast.LENGTH_SHORT).show();
+            addCourse(course);
         }
+    }
+
+    @Override
+    public void onAddCourse(Course course) {
+        addCourse(course);
+    }
+
+    private void addCourse(Course course) {
+        CommanderApplication app = (CommanderApplication) getApplication();
+        app.addCourse(mTableNumber, course);
+
+        // Giving feedback to user about course adding operation
+        Toast.makeText(this, R.string.course_added_message, Toast.LENGTH_SHORT).show();
     }
 }

@@ -14,7 +14,7 @@ public class Ticket implements Serializable {
 
     public Ticket(int tableNumber) {
         mTableNumber = tableNumber;
-        mRows = new ArrayList<TicketRow>();
+        mRows = new ArrayList<>();
         mTotal = 0;
     }
 

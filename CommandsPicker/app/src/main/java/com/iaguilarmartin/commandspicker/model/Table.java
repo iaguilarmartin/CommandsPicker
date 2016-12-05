@@ -1,7 +1,6 @@
 package com.iaguilarmartin.commandspicker.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 /**
  * Created by iaguilarmartin on 27/11/16.

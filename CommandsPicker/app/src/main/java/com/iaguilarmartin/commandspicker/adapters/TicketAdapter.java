@@ -17,6 +17,8 @@ import java.util.ArrayList;
  * Created by iaguilarmartin on 2/12/16.
  */
 
+
+// This adapter is used to display information of each course inside the table ticket
 public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketViewHolder> {
 
     private Context mContext;

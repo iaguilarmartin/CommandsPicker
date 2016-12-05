@@ -23,6 +23,7 @@ import java.util.List;
  * Created by iaguilarmartin on 30/11/16.
  */
 
+// This adapter is used to display courses information in different formats
 public class CoursesAdapter extends ArrayAdapter<CoursesAdapter.CourseAdapterItem> {
     private int mLayoutResource;
     private Context mContext;
@@ -43,6 +44,9 @@ public class CoursesAdapter extends ArrayAdapter<CoursesAdapter.CourseAdapterIte
 
         CourseAdapterItem courseItem = getItem(position);
         if (courseItem instanceof Course) {
+
+            // If item to display is a course information is displaying depending on
+            // the layout resource especified during initialization
             View view = inflater.inflate(mLayoutResource, null);
             Course course = (Course) courseItem;
 
@@ -50,6 +54,8 @@ public class CoursesAdapter extends ArrayAdapter<CoursesAdapter.CourseAdapterIte
             tvName.setText(course.getName());
 
             if (mLayoutResource == R.layout.list_item_course) {
+                // This peace of code display complete information about the course
+                // it is used in CoursesFragment
                 TextView tvPrice = (TextView) view.findViewById(R.id.coursePrice);
                 tvPrice.setText(Utils.formatDoubleToPrice(course.getPrice()));
 
@@ -72,6 +78,8 @@ public class CoursesAdapter extends ArrayAdapter<CoursesAdapter.CourseAdapterIte
                     allergensLayout.addView(icon);
                 }
             } else {
+                // Just displaying course name and user suggestions.
+                // It is used in TableDetailFragment
                 TextView tvSuggestions = (TextView) view.findViewById(R.id.courseSeggestions);
                 if (course.getSuggestions().length() > 0){
                     tvSuggestions.setText(course.getSuggestions());
@@ -82,6 +90,8 @@ public class CoursesAdapter extends ArrayAdapter<CoursesAdapter.CourseAdapterIte
 
             return view;
         } else {
+
+            // Displaying course category layout
             CourseCategory courseCategory = (CourseCategory) courseItem;
             View view = inflater.inflate(R.layout.list_item_section, null);
 
@@ -92,6 +102,7 @@ public class CoursesAdapter extends ArrayAdapter<CoursesAdapter.CourseAdapterIte
         }
     }
 
+    // Interface created to reuse adapter with courses and courses categories
     public interface CourseAdapterItem {
     }
 }

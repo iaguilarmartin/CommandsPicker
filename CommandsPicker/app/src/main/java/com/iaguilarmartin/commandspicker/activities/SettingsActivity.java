@@ -4,15 +4,12 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.iaguilarmartin.commandspicker.R;
 import com.iaguilarmartin.commandspicker.model.CommanderApplication;
-import com.iaguilarmartin.commandspicker.model.Utils;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -28,6 +25,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         setTitle(R.string.settings_menu_option);
 
+        // Getting custom application singleton
         mApp = (CommanderApplication) getApplication();
 
         mEditText = (EditText) findViewById(R.id.numberOfTablesEdit);
@@ -57,6 +55,9 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
     }
+
+    // This function updates number of tables inside application shared preferences
+    // and regenerate table information inside Application Singleton
 
     private void setNumberOfTables(int numberOfTables) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);

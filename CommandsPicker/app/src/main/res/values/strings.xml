@@ -20,4 +20,8 @@
     <string name="course_added_message">Course added to table</string>
     <string name="ticket_dialog_title">Table Ticket</string>
     <string name="total">TOTAL</string>
+    <string name="select_table_text">Please select one table</string>
+    <string name="select_course_text">Please select a course from the list</string>
+    <string name="image_of_the_table">Image of the table</string>
+    <string name="image_of_the_course">Image of the course</string>
 </resources>

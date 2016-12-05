@@ -5,6 +5,7 @@
               android:layout_height="match_parent">
 
     <ImageView
+        android:contentDescription="@string/image_of_the_table"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/table_img"/>
@@ -16,6 +17,5 @@
         android:id="@+id/tableNumberText"
         android:layout_centerInParent="true"
         android:gravity="center_horizontal"
-        android:textColor="@android:color/black"
-        android:text="10"/>
+        android:textColor="@android:color/black"/>
 </RelativeLayout>

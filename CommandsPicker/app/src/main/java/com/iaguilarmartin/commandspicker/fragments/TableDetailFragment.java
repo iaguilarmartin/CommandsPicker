@@ -13,9 +13,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.iaguilarmartin.commandspicker.R;
 import com.iaguilarmartin.commandspicker.activities.CoursesActivity;
+import com.iaguilarmartin.commandspicker.activities.MainActivity;
 import com.iaguilarmartin.commandspicker.adapters.CoursesAdapter;
 import com.iaguilarmartin.commandspicker.model.CommanderApplication;
 import com.iaguilarmartin.commandspicker.model.Table;
@@ -66,6 +68,18 @@ public class TableDetailFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_table_detail, container, false);
         mListView = (ListView) root.findViewById(R.id.tableCoursesList);
 
+        TextView tvTableName = (TextView) root.findViewById(R.id.tableNameText);
+        if (getActivity() instanceof MainActivity) {
+            tvTableName.setText(String.format(getString(R.string.table_number_string), mTableNumber));
+        } else {
+            tvTableName.setVisibility(View.GONE);
+
+            ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) mListView
+                    .getLayoutParams();
+
+            mlp.setMargins(0, 0, 0, 0);
+        }
+
         FloatingActionButton addCourseBtn = (FloatingActionButton) root.findViewById(R.id.course_add_button);
         addCourseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,13 +103,15 @@ public class TableDetailFragment extends Fragment {
     private void updateTableCourses() {
 
         Table table = mApp.getTable(mTableNumber);
-        ArrayList<CoursesAdapter.CourseAdapterItem> courses = table.getCourses().getArray(getActivity());
+        if (table != null) {
+            ArrayList<CoursesAdapter.CourseAdapterItem> courses = table.getCourses().getArray(getActivity());
 
-        if (mListView.getAdapter() == null || mListView.getAdapter().getCount() != courses.size()) {
-            CoursesAdapter adapter = new CoursesAdapter(getActivity(), R.layout.list_item_course_simple, courses);
-            mListView.setAdapter(adapter);
+            if (mListView.getAdapter() == null || mListView.getAdapter().getCount() != courses.size()) {
+                CoursesAdapter adapter = new CoursesAdapter(getActivity(), R.layout.list_item_course_simple, courses);
+                mListView.setAdapter(adapter);
+            }
+            getActivity().invalidateOptionsMenu();
         }
-        getActivity().invalidateOptionsMenu();
     }
 
     @Override

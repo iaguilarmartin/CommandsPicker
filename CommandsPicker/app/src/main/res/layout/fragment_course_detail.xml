@@ -7,12 +7,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@android:color/white"
         android:orientation="vertical">
 
         <ImageView
+            android:contentDescription="@string/image_of_the_course"
+            android:maxHeight="300dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scaleType="fitXY"
+            android:scaleType="fitCenter"
             android:adjustViewBounds="true"
             android:id="@+id/courseImage"/>
 

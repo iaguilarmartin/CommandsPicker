@@ -24,18 +24,19 @@ public class Courses implements Serializable {
     private ArrayList<String> mImages;
 
     public Courses() {
-        mStarters = new ArrayList<Course>();
-        mMainCourses = new ArrayList<Course>();
-        mDesserts = new ArrayList<Course>();
+        mStarters = new ArrayList<>();
+        mMainCourses = new ArrayList<>();
+        mDesserts = new ArrayList<>();
     }
 
+    // Creating a course from a JSON string
     public Courses(String json) throws JSONException {
-        mImages = new ArrayList<String>();
+        mImages = new ArrayList<>();
 
         JSONObject jsonObject = new JSONObject(json);
         JSONArray jsonAllergens = jsonObject.getJSONArray("allergens");
 
-        HashMap<String, Allergen> allergens = new HashMap<String, Allergen>();
+        HashMap<String, Allergen> allergens = new HashMap<>();
         for (int i = 0; i < jsonAllergens.length(); i++) {
             JSONObject jsonAllergen = (JSONObject) jsonAllergens.get(i);
             Allergen allergen = new Allergen();
@@ -55,7 +56,7 @@ public class Courses implements Serializable {
     }
 
     private ArrayList<Course> processCourses(JSONArray jsonCourses, HashMap<String, Allergen> allergens, Course.CourseType type) throws JSONException {
-        ArrayList<Course> courses = new ArrayList<Course>();
+        ArrayList<Course> courses = new ArrayList<>();
 
         for (int i = 0; i < jsonCourses.length(); i++) {
             JSONObject jsonCourse = (JSONObject) jsonCourses.get(i);
@@ -95,7 +96,7 @@ public class Courses implements Serializable {
     }
 
     public ArrayList<CoursesAdapter.CourseAdapterItem> getArray(Context context) {
-        ArrayList<CoursesAdapter.CourseAdapterItem> result = new ArrayList<CoursesAdapter.CourseAdapterItem>();
+        ArrayList<CoursesAdapter.CourseAdapterItem> result = new ArrayList<>();
 
         result.add(new CourseCategory(context.getString(R.string.starters_title)));
         result.addAll(mStarters);

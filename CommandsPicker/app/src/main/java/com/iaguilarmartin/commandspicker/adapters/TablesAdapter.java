@@ -17,6 +17,7 @@ import java.util.List;
  * Created by iaguilarmartin on 27/11/16.
  */
 
+// This adapter is user to display tables inside the TablesFragment GridVIew
 public class TablesAdapter extends ArrayAdapter<Table> {
     int mTableResource;
     Context mContext;

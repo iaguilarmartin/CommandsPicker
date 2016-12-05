@@ -1,11 +1,8 @@
 package com.iaguilarmartin.commandspicker.model;
 
-import android.graphics.Bitmap;
-
 import com.iaguilarmartin.commandspicker.adapters.CoursesAdapter;
 
 import java.io.Serializable;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 /**
@@ -25,7 +22,7 @@ public class Course implements Serializable, CoursesAdapter.CourseAdapterItem {
     public Course() {
         super();
 
-        mAllergens = new ArrayList<Allergen>();
+        mAllergens = new ArrayList<>();
     }
 
     public String getName() {

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <fragment
+        android:id="@+id/courses_fragment"
+        android:layout_width="@dimen/small_fragment_width"
+        android:layout_height="match_parent"
+        android:name="com.iaguilarmartin.commandspicker.fragments.CoursesFragment"
+        tools:layout="@layout/fragment_courses"/>
+
+    <FrameLayout
+        android:id="@+id/course_detail_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_margin="@dimen/dialog_padding"
+            android:textColor="@color/colorSection"
+            android:textStyle="bold"
+            android:textSize="28sp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:text="@string/select_course_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </FrameLayout>
+</LinearLayout>

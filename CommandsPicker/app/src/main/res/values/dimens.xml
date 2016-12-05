@@ -11,4 +11,5 @@
     <dimen name="ticket_text_size">18sp</dimen>
     <dimen name="ticket_small_text_size">16sp</dimen>
     <dimen name="ticket_medium_text_size">17sp</dimen>
+    <dimen name="small_fragment_width">350dp</dimen>
 </resources>
