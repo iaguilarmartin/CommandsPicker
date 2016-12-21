@@ -24,4 +24,4 @@ Here you have a list of the different components and features implemented on thi
 ### Application screenshots
 Navigate into the *Resources* folder to see how this app looks like:
 
-![](/Resources/screenshots/Screenshot_1480959173.png?raw=true)
+![](/Resources/screenshots/Phone/en/Screenshot_1480959173.png?raw=true)
