@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Comandero</string>
+    <string name="tables_activity_title">Mesas</string>
+    <string name="settings_menu_option">Ajustes</string>
+    <string name="number_of_tables">Número de mesas</string>
+    <string name="progress_dialog_title">Descargando</string>
+    <string name="progress_dialog_text">Obteniendo información de los platos</string>
+    <string name="starters_title">Entrantes</string>
+    <string name="main_courses_title">Platos principales</string>
+    <string name="desserts_title">Postres</string>
+    <string name="course_detail_title">Información del plato</string>
+    <string name="change_tables_warning">Si modificas el número de mesas todas las comandas serán eliminadas</string>
+    <string name="table_number_string">Mesa %d</string>
+    <string name="courses_activity_title">Platos</string>
+    <string name="course_detail_activity_title">Información del plato</string>
+    <string name="add_course_menu_text">Añadir</string>
+    <string name="course_suggestions">Indique aquí cualquier sugerencia realizada por el cliente acerca de la preparación del plato</string>
+    <string name="suggestions_text">Sugerencias</string>
+    <string name="close_table">Terminar</string>
+    <string name="course_added_message">Plato añadido a la mesa</string>
+    <string name="ticket_dialog_title">Ticket</string>
+    <string name="total">TOTAL</string>
+    <string name="select_table_text">Por favor, seleccione una mesa</string>
+    <string name="select_course_text">Por favor, seleccione un plato de la lista</string>
+    <string name="image_of_the_table">Imagen de la mesa</string>
+    <string name="image_of_the_course">Imagen del plato</string>
+</resources>
