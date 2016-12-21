@@ -3,10 +3,6 @@ package com.iaguilarmartin.commandspicker.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-/**
- * Created by iaguilarmartin on 2/12/16.
- */
-
 public class Ticket implements Serializable {
     private int mTableNumber;
     private ArrayList<TicketRow> mRows;

@@ -1,4 +1,4 @@
-package com.iaguilarmartin.commandspicker.fragments;
+package com.iaguilarmartin.commandspicker.fragment;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -15,7 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.iaguilarmartin.commandspicker.R;
-import com.iaguilarmartin.commandspicker.adapters.CoursesAdapter;
+import com.iaguilarmartin.commandspicker.adapter.CoursesAdapter;
 import com.iaguilarmartin.commandspicker.model.Course;
 import com.iaguilarmartin.commandspicker.model.Courses;
 import com.iaguilarmartin.commandspicker.model.Utils;
@@ -24,10 +24,6 @@ import org.json.JSONException;
 
 import java.io.IOException;
 import java.io.InputStream;
-
-/**
- * Created by iaguilarmartin on 30/11/16.
- */
 
 public class CoursesFragment extends Fragment {
 
@@ -46,11 +42,11 @@ public class CoursesFragment extends Fragment {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-            CoursesAdapter.CourseAdapterItem course = (CoursesAdapter.CourseAdapterItem) adapterView.getAdapter().getItem(position);
+                CoursesAdapter.CourseAdapterItem course = (CoursesAdapter.CourseAdapterItem) adapterView.getAdapter().getItem(position);
 
-            if (course instanceof Course && mOnCourseSelectedListener != null) {
-                mOnCourseSelectedListener.onCourseSelected((Course) course);
-            }
+                if (course instanceof Course && mOnCourseSelectedListener != null) {
+                    mOnCourseSelectedListener.onCourseSelected((Course) course);
+                }
             }
         });
 

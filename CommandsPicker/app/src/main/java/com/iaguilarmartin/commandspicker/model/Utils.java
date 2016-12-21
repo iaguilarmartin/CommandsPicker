@@ -21,10 +21,6 @@ import java.net.URL;
 
 import javax.net.ssl.HttpsURLConnection;
 
-/**
- * Created by iaguilarmartin on 29/11/16.
- */
-
 // Class containing several static methods that are used in different parts of the application
 public class Utils {
 

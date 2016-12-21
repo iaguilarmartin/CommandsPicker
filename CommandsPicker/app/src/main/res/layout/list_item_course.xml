@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="horizontal"
-              android:padding="10dp"
+              android:padding="@dimen/small_padding"
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
 
     <ImageView
         android:contentDescription="@string/image_of_the_course"
         android:id="@+id/courseImage"
-        android:layout_width="100dp"
-        android:layout_height="67dp"/>
+        android:layout_width="@dimen/course_item_image_width"
+        android:layout_height="@dimen/course_item_image_height"/>
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
-        android:minHeight="67dp"
-        android:layout_marginLeft="10dp"
+        android:minHeight="@dimen/course_item_min_height"
+        android:layout_marginLeft="@dimen/small_padding"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1">
@@ -23,7 +23,7 @@
             android:layout_gravity="top"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="17sp"
+            android:textSize="@dimen/course_item_couse_name_text_size"
             android:textColor="@android:color/black"
             android:id="@+id/courseName"/>
 
@@ -48,7 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:textSize="20sp"/>
+                android:textSize="@dimen/course_item_couse_prise_text_size"/>
         </LinearLayout>
     </RelativeLayout>
 </LinearLayout>

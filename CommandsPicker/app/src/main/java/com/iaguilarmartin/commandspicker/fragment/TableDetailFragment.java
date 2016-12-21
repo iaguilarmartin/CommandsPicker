@@ -1,7 +1,8 @@
-package com.iaguilarmartin.commandspicker.fragments;
+package com.iaguilarmartin.commandspicker.fragment;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -16,26 +17,23 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.iaguilarmartin.commandspicker.R;
-import com.iaguilarmartin.commandspicker.activities.CoursesActivity;
-import com.iaguilarmartin.commandspicker.activities.MainActivity;
-import com.iaguilarmartin.commandspicker.adapters.CoursesAdapter;
+import com.iaguilarmartin.commandspicker.activity.CoursesActivity;
+import com.iaguilarmartin.commandspicker.activity.MainActivity;
+import com.iaguilarmartin.commandspicker.adapter.CoursesAdapter;
 import com.iaguilarmartin.commandspicker.model.CommanderApplication;
 import com.iaguilarmartin.commandspicker.model.Table;
 
 import java.util.ArrayList;
-
-/**
- * Created by iaguilarmartin on 1/12/16.
- */
 
 public class TableDetailFragment extends Fragment {
 
     private static final String ARG_TABLE_NUMBER = "argTableNUmber";
     public static final int CLOSE_TABLE_RESULT = 0;
 
-    ListView mListView;
-    int mTableNumber;
-    CommanderApplication mApp;
+    private ListView mListView;
+    private int mTableNumber;
+    private CommanderApplication mApp;
+    private OnTicketClosedListener mOnTicketClosedListener;
 
     public static TableDetailFragment newInstance(int tableNumber) {
         Bundle arguments = new Bundle();
@@ -148,7 +146,38 @@ public class TableDetailFragment extends Fragment {
 
         if (requestCode == CLOSE_TABLE_RESULT && resultCode == Activity.RESULT_OK) {
             mApp.closeTable(mTableNumber);
-            getActivity().finish();
+            if (mOnTicketClosedListener != null) {
+                mOnTicketClosedListener.onTicketClosed(this.mTableNumber);
+            }
         }
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        if (getActivity() instanceof OnTicketClosedListener) {
+            mOnTicketClosedListener = (OnTicketClosedListener) getActivity();
+        }
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+
+        if (getActivity() instanceof OnTicketClosedListener) {
+            mOnTicketClosedListener = (OnTicketClosedListener) getActivity();
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+
+        mOnTicketClosedListener = null;
+    }
+
+    public interface OnTicketClosedListener {
+        void onTicketClosed(int tableNumber);
     }
 }

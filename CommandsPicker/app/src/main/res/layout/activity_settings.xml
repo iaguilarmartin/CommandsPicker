@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.iaguilarmartin.commandspicker.activities.SettingsActivity">
+    tools:context="com.iaguilarmartin.commandspicker.activity.SettingsActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/number_of_tables"
-            android:textSize="20sp"
+            android:textSize="@dimen/settings_section_text_size"
             android:textStyle="normal|bold"/>
 
         <LinearLayout
@@ -37,20 +37,20 @@
                 android:layout_weight="1"
                 android:textColor="@color/colorSection"
                 android:textStyle="normal|bold"
-                android:textSize="24sp"/>
+                android:textSize="@dimen/settings_editText_text_size"/>
 
             <Button
                 android:id="@+id/addTableBtn"
                 android:text="+"
-                android:layout_width="50dp"
-                android:paddingTop="5dp"
+                android:layout_width="@dimen/settings_button_width"
+                android:paddingTop="@dimen/settings_button_padding_top"
                 android:textSize="@dimen/button_text_size"
                 android:layout_height="match_parent"/>
             <Button
                 android:id="@+id/removeTableBtn"
                 android:text="-"
-                android:layout_width="50dp"
-                android:paddingTop="5dp"
+                android:layout_width="@dimen/settings_button_width"
+                android:paddingTop="@dimen/settings_button_padding_top"
                 android:textSize="@dimen/button_text_size"
                 android:layout_height="match_parent"/>
         </LinearLayout>
@@ -59,7 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/change_tables_warning"
-            android:textSize="14sp"
+            android:textSize="@dimen/settings_section_description_text_size"
             android:textStyle="normal|italic"
             android:textColor="#AAA"/>
     </LinearLayout>

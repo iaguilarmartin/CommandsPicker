@@ -1,4 +1,4 @@
-package com.iaguilarmartin.commandspicker.activities;
+package com.iaguilarmartin.commandspicker.activity;
 
 import android.app.Fragment;
 import android.content.Intent;
@@ -7,11 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.FrameLayout;
 
 import com.iaguilarmartin.commandspicker.R;
-import com.iaguilarmartin.commandspicker.fragments.TableDetailFragment;
-import com.iaguilarmartin.commandspicker.fragments.TablesFragment;
+import com.iaguilarmartin.commandspicker.fragment.TableDetailFragment;
+import com.iaguilarmartin.commandspicker.fragment.TablesFragment;
 import com.iaguilarmartin.commandspicker.model.Table;
 
-public class MainActivity extends AppCompatActivity implements TablesFragment.OnTableSelectedListener {
+public class MainActivity extends AppCompatActivity implements TablesFragment.OnTableSelectedListener, TableDetailFragment.OnTicketClosedListener {
 
     public final static String TABLE_NUMBER_EXTRA = "extraTableNumber";
 
@@ -49,6 +49,10 @@ public class MainActivity extends AppCompatActivity implements TablesFragment.On
                 getFragmentManager().beginTransaction().remove(fragment).commit();
             }
         }
+    }
 
+    @Override
+    public void onTicketClosed(int tableNumber) {
+        onTableSelected(null);
     }
 }

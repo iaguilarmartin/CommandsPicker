@@ -14,7 +14,7 @@
           android:stretchMode="columnWidth"
           android:numColumns="auto_fit"
           android:gravity="center"
-          tools:context="com.iaguilarmartin.commandspicker.fragments.TablesFragment">
+          tools:context="com.iaguilarmartin.commandspicker.fragment.TablesFragment">
 
 
 </GridView>

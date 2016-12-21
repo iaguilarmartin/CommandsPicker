@@ -9,15 +9,15 @@
         android:id="@+id/tableNameText"
         android:gravity="center_horizontal|center_vertical"
         android:textStyle="bold"
-        android:textSize="25sp"
+        android:textSize="@dimen/table_name_panel_text_size"
         android:textColor="@android:color/white"
-        android:background="#BBB"
+        android:background="@color/colotTableNamePanel"
         android:layout_gravity="top"
         android:layout_width="match_parent"
-        android:layout_height="60dp"/>
+        android:layout_height="@dimen/table_name_panel_height"/>
 
     <ListView
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="@dimen/courses_list_margin"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/tableCoursesList"/>

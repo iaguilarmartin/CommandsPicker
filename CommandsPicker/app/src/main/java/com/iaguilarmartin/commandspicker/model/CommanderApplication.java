@@ -4,13 +4,9 @@ import android.app.Application;
 import android.preference.PreferenceManager;
 
 import com.iaguilarmartin.commandspicker.R;
-import com.iaguilarmartin.commandspicker.activities.SettingsActivity;
+import com.iaguilarmartin.commandspicker.activity.SettingsActivity;
 
 import java.util.ArrayList;
-
-/**
- * Created by iaguilarmartin on 2/12/16.
- */
 
 // Extending default application object to store table information on it
 // in order to be accesible all along the app context

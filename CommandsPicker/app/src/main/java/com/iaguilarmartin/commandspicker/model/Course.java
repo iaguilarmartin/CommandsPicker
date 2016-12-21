@@ -1,13 +1,9 @@
 package com.iaguilarmartin.commandspicker.model;
 
-import com.iaguilarmartin.commandspicker.adapters.CoursesAdapter;
+import com.iaguilarmartin.commandspicker.adapter.CoursesAdapter;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-
-/**
- * Created by iaguilarmartin on 27/11/16.
- */
 
 public class Course implements Serializable, CoursesAdapter.CourseAdapterItem {
     private String mName;

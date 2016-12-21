@@ -3,7 +3,7 @@ package com.iaguilarmartin.commandspicker.model;
 import android.content.Context;
 
 import com.iaguilarmartin.commandspicker.R;
-import com.iaguilarmartin.commandspicker.adapters.CoursesAdapter;
+import com.iaguilarmartin.commandspicker.adapter.CoursesAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -12,10 +12,6 @@ import org.json.JSONObject;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
-
-/**
- * Created by iaguilarmartin on 30/11/16.
- */
 
 public class Courses implements Serializable {
     private ArrayList<Course> mStarters;

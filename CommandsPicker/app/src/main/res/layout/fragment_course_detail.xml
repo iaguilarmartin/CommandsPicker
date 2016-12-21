@@ -12,7 +12,7 @@
 
         <ImageView
             android:contentDescription="@string/image_of_the_course"
-            android:maxHeight="300dp"
+            android:maxHeight="@dimen/course_detail_image_max_height"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scaleType="fitCenter"
@@ -29,15 +29,15 @@
             android:orientation="vertical">
 
             <TextView
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="@dimen/small_padding"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="22sp"
+                android:textSize="@dimen/course_detail_name_text_size"
                 android:textColor="@android:color/black"
                 android:id="@+id/courseName"/>
 
             <LinearLayout
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="@dimen/small_padding"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -57,13 +57,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textSize="25sp"/>
+                    android:textSize="@dimen/course_detail_price_text_size"/>
             </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="17sp"
+                android:textSize="@dimen/course_detail_description_text_size"
                 android:textColor="@color/colorSection"
                 android:id="@+id/courseDescription"/>
         </LinearLayout>

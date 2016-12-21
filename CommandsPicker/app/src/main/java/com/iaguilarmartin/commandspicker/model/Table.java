@@ -2,14 +2,9 @@ package com.iaguilarmartin.commandspicker.model;
 
 import java.io.Serializable;
 
-/**
- * Created by iaguilarmartin on 27/11/16.
- */
-
 public class Table implements Serializable {
     private int mNumber;
     private Courses mCourses;
-
 
     public Table(int number) {
         mNumber = number;

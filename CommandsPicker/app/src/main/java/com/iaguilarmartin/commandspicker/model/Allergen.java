@@ -2,10 +2,6 @@ package com.iaguilarmartin.commandspicker.model;
 
 import java.io.Serializable;
 
-/**
- * Created by iaguilarmartin on 27/11/16.
- */
-
 public class Allergen implements Serializable {
     private String mId;
     private String mName;

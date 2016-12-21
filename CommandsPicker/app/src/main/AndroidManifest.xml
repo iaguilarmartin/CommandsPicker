@@ -11,20 +11,20 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.MainActivity">
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activities.SettingsActivity">
+        <activity android:name=".activity.SettingsActivity">
         </activity>
-        <activity android:name=".activities.TableDetailActivity">
+        <activity android:name=".activity.TableDetailActivity">
         </activity>
-        <activity android:name=".activities.CourseDetailActivity">
+        <activity android:name=".activity.CourseDetailActivity">
         </activity>
-        <activity android:name=".activities.CoursesActivity">
+        <activity android:name=".activity.CoursesActivity">
         </activity>
     </application>
 

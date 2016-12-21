@@ -1,14 +1,15 @@
-package com.iaguilarmartin.commandspicker.activities;
+package com.iaguilarmartin.commandspicker.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.iaguilarmartin.commandspicker.R;
-import com.iaguilarmartin.commandspicker.fragments.CourseDetailFragment;
-import com.iaguilarmartin.commandspicker.fragments.CoursesFragment;
+import com.iaguilarmartin.commandspicker.fragment.CourseDetailFragment;
+import com.iaguilarmartin.commandspicker.fragment.CoursesFragment;
 import com.iaguilarmartin.commandspicker.model.CommanderApplication;
 import com.iaguilarmartin.commandspicker.model.Course;
 
@@ -18,12 +19,14 @@ public class CoursesActivity extends AppCompatActivity implements CoursesFragmen
     public static final String COURSE_EXTRA = "CourseExtra";
     public static final int COURSE_ADD_RESULT = 0;
 
-    int mTableNumber;
+    private int mTableNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_courses);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Getting table number received inside intent extras
         mTableNumber = getIntent().getIntExtra(EXTRA_TABLE_NUMBER, -1);
@@ -73,5 +76,17 @@ public class CoursesActivity extends AppCompatActivity implements CoursesFragmen
 
         // Giving feedback to user about course adding operation
         Toast.makeText(this, R.string.course_added_message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        boolean superResult = super.onOptionsItemSelected(item);
+
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+
+        return superResult;
     }
 }

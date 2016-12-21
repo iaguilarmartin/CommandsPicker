@@ -3,5 +3,6 @@
     <color name="colorPrimary">#FF0000</color>
     <color name="colorPrimaryDark">#E01D1D</color>
     <color name="colorAccent">#E01D1D</color>
+    <color name="colotTableNamePanel">#BBB</color>
     <color name="colorSection">#666666</color>
 </resources>

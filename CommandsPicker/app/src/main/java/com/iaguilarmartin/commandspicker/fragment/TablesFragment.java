@@ -1,4 +1,4 @@
-package com.iaguilarmartin.commandspicker.fragments;
+package com.iaguilarmartin.commandspicker.fragment;
 
 
 import android.app.Activity;
@@ -16,8 +16,8 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.iaguilarmartin.commandspicker.R;
-import com.iaguilarmartin.commandspicker.activities.SettingsActivity;
-import com.iaguilarmartin.commandspicker.adapters.TablesAdapter;
+import com.iaguilarmartin.commandspicker.activity.SettingsActivity;
+import com.iaguilarmartin.commandspicker.adapter.TablesAdapter;
 import com.iaguilarmartin.commandspicker.model.CommanderApplication;
 import com.iaguilarmartin.commandspicker.model.Table;
 

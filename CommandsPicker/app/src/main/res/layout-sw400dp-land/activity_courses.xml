@@ -10,7 +10,7 @@
         android:id="@+id/courses_fragment"
         android:layout_width="@dimen/small_fragment_width"
         android:layout_height="match_parent"
-        android:name="com.iaguilarmartin.commandspicker.fragments.CoursesFragment"
+        android:name="com.iaguilarmartin.commandspicker.fragment.CoursesFragment"
         tools:layout="@layout/fragment_courses"/>
 
     <FrameLayout
@@ -23,7 +23,7 @@
             android:layout_margin="@dimen/dialog_padding"
             android:textColor="@color/colorSection"
             android:textStyle="bold"
-            android:textSize="28sp"
+            android:textSize="@dimen/extra_large_text_size"
             android:gravity="center"
             android:layout_gravity="center_horizontal|center_vertical"
             android:text="@string/select_course_text"

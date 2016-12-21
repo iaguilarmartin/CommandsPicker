@@ -1,9 +1,10 @@
-package com.iaguilarmartin.commandspicker.activities;
+package com.iaguilarmartin.commandspicker.activity;
 
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,13 +16,15 @@ public class SettingsActivity extends AppCompatActivity {
 
     public static final String PREFERENCE_NUMBER_OF_TABLES = "numberOfTables";
 
-    EditText mEditText;
-    CommanderApplication mApp;
+    private EditText mEditText;
+    private CommanderApplication mApp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         setTitle(R.string.settings_menu_option);
 
@@ -54,6 +57,18 @@ public class SettingsActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        boolean superResult = super.onOptionsItemSelected(item);
+
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+
+        return superResult;
     }
 
     // This function updates number of tables inside application shared preferences

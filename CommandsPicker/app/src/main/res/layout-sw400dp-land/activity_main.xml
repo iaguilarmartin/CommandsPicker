@@ -9,7 +9,7 @@
         android:id="@+id/tables_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.iaguilarmartin.commandspicker.fragments.TablesFragment"
+        android:name="com.iaguilarmartin.commandspicker.fragment.TablesFragment"
         tools:layout="@layout/fragment_tables"
         android:layout_weight="1"/>
 
@@ -22,7 +22,7 @@
             android:layout_margin="@dimen/dialog_padding"
             android:textColor="@color/colorSection"
             android:textStyle="bold"
-            android:textSize="28sp"
+            android:textSize="@dimen/extra_large_text_size"
             android:gravity="center"
             android:layout_gravity="center_horizontal|center_vertical"
             android:text="@string/select_table_text"

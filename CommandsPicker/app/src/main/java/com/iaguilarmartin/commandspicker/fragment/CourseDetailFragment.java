@@ -1,4 +1,4 @@
-package com.iaguilarmartin.commandspicker.fragments;
+package com.iaguilarmartin.commandspicker.fragment;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -24,16 +24,12 @@ import com.iaguilarmartin.commandspicker.model.Allergen;
 import com.iaguilarmartin.commandspicker.model.Course;
 import com.iaguilarmartin.commandspicker.model.Utils;
 
-/**
- * Created by iaguilarmartin on 1/12/16.
- */
-
 public class CourseDetailFragment extends Fragment {
 
     private final static String ARG_COURSE = "argCourse";
 
-    Course mCourse;
-    OnAddCourseListener mOnAddCourseListener;
+    private Course mCourse;
+    private OnAddCourseListener mOnAddCourseListener;
 
     public static CourseDetailFragment newInstance(Course course) {
         Bundle arguments = new Bundle();
@@ -80,8 +76,9 @@ public class CourseDetailFragment extends Fragment {
             Bitmap iconBitmap = Utils.getImageFromApplicationData(getActivity(), allergen.getIcon());
 
             ImageView icon = new ImageView(getActivity());
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(60, 60);
-            params.rightMargin = 25;
+            int allergenSize = (int) getResources().getDimension(R.dimen.allergens_list_item_size);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(allergenSize, allergenSize);
+            params.rightMargin = (int) getResources().getDimension(R.dimen.allergens_list_separation);
             icon.setLayoutParams(params);
             icon.setImageBitmap(iconBitmap);
 

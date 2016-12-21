@@ -1,4 +1,4 @@
-package com.iaguilarmartin.commandspicker.adapters;
+package com.iaguilarmartin.commandspicker.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -13,14 +13,11 @@ import com.iaguilarmartin.commandspicker.R;
 
 import java.util.List;
 
-/**
- * Created by iaguilarmartin on 27/11/16.
- */
 
 // This adapter is user to display tables inside the TablesFragment GridVIew
 public class TablesAdapter extends ArrayAdapter<Table> {
-    int mTableResource;
-    Context mContext;
+    private int mTableResource;
+    private Context mContext;
 
     public TablesAdapter(Context context, int resource, List<Table> tables) {
         super(context, android.R.layout.simple_list_item_1, tables);

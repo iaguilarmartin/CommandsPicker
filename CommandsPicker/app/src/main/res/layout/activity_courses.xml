@@ -5,12 +5,12 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.iaguilarmartin.commandspicker.activities.CoursesActivity">
+    tools:context="com.iaguilarmartin.commandspicker.activity.CoursesActivity">
 
     <fragment
         android:id="@+id/courses_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.iaguilarmartin.commandspicker.fragments.CoursesFragment"
+        android:name="com.iaguilarmartin.commandspicker.fragment.CoursesFragment"
         tools:layout="@layout/fragment_courses"/>
 </LinearLayout>

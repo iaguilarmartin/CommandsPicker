@@ -1,4 +1,4 @@
-package com.iaguilarmartin.commandspicker.fragments;
+package com.iaguilarmartin.commandspicker.fragment;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -15,7 +15,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.iaguilarmartin.commandspicker.R;
-import com.iaguilarmartin.commandspicker.adapters.TicketAdapter;
+import com.iaguilarmartin.commandspicker.adapter.TicketAdapter;
 import com.iaguilarmartin.commandspicker.model.Ticket;
 import com.iaguilarmartin.commandspicker.model.Utils;
 
@@ -23,10 +23,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-
-/**
- * Created by iaguilarmartin on 2/12/16.
- */
 
 // Fragment created to display ticket information inside a DialogFragment
 public class TicketFragment extends DialogFragment {

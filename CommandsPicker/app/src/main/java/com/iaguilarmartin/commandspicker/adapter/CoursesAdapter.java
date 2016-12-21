@@ -1,4 +1,4 @@
-package com.iaguilarmartin.commandspicker.adapters;
+package com.iaguilarmartin.commandspicker.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -18,10 +18,6 @@ import com.iaguilarmartin.commandspicker.model.CourseCategory;
 import com.iaguilarmartin.commandspicker.model.Utils;
 
 import java.util.List;
-
-/**
- * Created by iaguilarmartin on 30/11/16.
- */
 
 // This adapter is used to display courses information in different formats
 public class CoursesAdapter extends ArrayAdapter<CoursesAdapter.CourseAdapterItem> {
@@ -70,8 +66,10 @@ public class CoursesAdapter extends ArrayAdapter<CoursesAdapter.CourseAdapterIte
                     Bitmap iconBitmap = Utils.getImageFromApplicationData(mContext, allergen.getIcon());
 
                     ImageView icon = new ImageView(mContext);
-                    LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(60, 60);
-                    params.rightMargin = 25;
+
+                    int allergenSize = (int) mContext.getResources().getDimension(R.dimen.allergens_list_item_size);
+                    LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(allergenSize, allergenSize);
+                    params.rightMargin = (int) mContext.getResources().getDimension(R.dimen.allergens_list_separation);
                     icon.setLayoutParams(params);
                     icon.setImageBitmap(iconBitmap);
 
