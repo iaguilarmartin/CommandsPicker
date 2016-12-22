@@ -26,6 +26,10 @@
         </activity>
         <activity android:name=".activity.CoursesActivity">
         </activity>
+        <activity
+            android:name=".activity.AboutActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

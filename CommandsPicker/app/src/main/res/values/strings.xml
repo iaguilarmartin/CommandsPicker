@@ -24,4 +24,19 @@
     <string name="select_course_text">Please select a course from the list</string>
     <string name="image_of_the_table">Image of the table</string>
     <string name="image_of_the_course">Image of the course</string>
+    <string name="contact_mail_subject">Hey from CommandsPicker!</string>
+    <string name="about_menu_option">About</string>
+    <string name="about_text">
+        Hi! My name is Iván Aguilar Martín and I am a Mobile/Web applications developer.\n\n
+
+        As you probably have seen this is just a demo app witch mission is that possible
+        clients can have a small idea of how its app could looks like.\n\n
+
+        I can design and build to you an stuning native mobile application for Android or iOS devices
+        that takes your business to the top.\n\n
+
+        You can contact me by email just clicking on the envelope button above and if
+        you want to know more about me, my portfolio or companies I worked with please visit my personal
+        website at:
+    </string>
 </resources>

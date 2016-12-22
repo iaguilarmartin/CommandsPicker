@@ -25,4 +25,26 @@
     <string name="select_course_text">Por favor, seleccione un plato de la lista</string>
     <string name="image_of_the_table">Imagen de la mesa</string>
     <string name="image_of_the_course">Imagen del plato</string>
+    <string name="contact_mail_subject">Contacto desde Comandero!</string>
+    <string name="about_menu_option">Acerca de</string>
+    <string name="about_text">
+        Hola! Mi nombre es Iván Aguilar Martín y soy desarrollador de apliaciones móviles
+        y páginas web.
+
+        Como ya te habras dado cuenta, esta es solo una aplicación de ejemplo cuya misión
+        es que posibles clientes se hagan una ligera idea de como podría ser su aplicación deseada.\n\n
+
+        Si quiere llevar su negoció a un nuevo nivel, no lo dude, invierta en el y proporcione a sus
+        clientes una experiencia única que le haga diferenciarse de su competencia.\n\n
+
+        Puedo construirle su aplicación tanto para dispositivos Android como iOS en un tiempo record
+        y siempre con un trato completamente personalizado. Eso es algo que otras empresas de mayor
+        tamaño no podran darle.\n\n
+
+        Puede contactar conmigo a traves de correo electrónico simplemente pinchando en el botón
+        situado un poco más arriba.\n\n
+
+        Si quiere saber más sobre mí, sobre mis proyectos o sobre las compañias con las que he trabajado
+        visite mi página web personal:
+    </string>
 </resources>

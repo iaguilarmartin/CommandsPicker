@@ -38,4 +38,8 @@
     <dimen name="courses_list_margin">60dp</dimen>
     <dimen name="allergens_list_item_size">20dp</dimen>
     <dimen name="allergens_list_separation">7dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="iam_logo_width">250dp</dimen>
+    <dimen name="about_text_size">16sp</dimen>
 </resources>

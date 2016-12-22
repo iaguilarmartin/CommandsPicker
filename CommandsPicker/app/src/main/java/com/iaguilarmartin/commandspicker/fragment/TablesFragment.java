@@ -16,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.iaguilarmartin.commandspicker.R;
+import com.iaguilarmartin.commandspicker.activity.AboutActivity;
 import com.iaguilarmartin.commandspicker.activity.SettingsActivity;
 import com.iaguilarmartin.commandspicker.adapter.TablesAdapter;
 import com.iaguilarmartin.commandspicker.model.CommanderApplication;
@@ -76,6 +77,11 @@ public class TablesFragment extends Fragment {
             case R.id.settings_option: {
                 // Displaying SettingsActivity in order to change number of tables
                 Intent intent = new Intent(getActivity(), SettingsActivity.class);
+                startActivity(intent);
+            } break;
+            case R.id.about_option: {
+                // Displaying AboutActivity
+                Intent intent = new Intent(getActivity(), AboutActivity.class);
                 startActivity(intent);
             } break;
         }
